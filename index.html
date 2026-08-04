@@ -222,3 +222,191 @@
 <script src="games.js"></script>
 </body>
 </html>
+  <div class="login-card">
+    <h2 id="loginTitle">User Login</h2>
+    <p class="login-sub" id="loginSub">Sign in to see your profile and send feedback.</p>
+    <form id="loginForm">
+      <label>Username
+        <input type="text" id="loginUsername" placeholder="Enter username" required>
+      </label>
+      <label>Password
+        <input type="password" id="loginPassword" placeholder="Enter password" required>
+      </label>
+      <button type="submit" class="btn-primary">Log in</button>
+    </form>
+    <p class="login-hint">Tip: type anything. This is a demo login.</p>
+    <button class="btn-text" id="logoutBtn" style="display:none;">Log out</button>
+  </div>
+</section>
+
+<!-- HOME -->
+<section id="home" class="section hero">
+  <div class="hero-text">
+    <p class="eyebrow">Welcome</p>
+    <h1>One page. Every voice.</h1>
+    <p class="hero-lead">A simple hub where members ask questions, share feedback, and admins keep things running — all on one page, on any screen.</p>
+    <a href="#feedback" class="btn-primary">Leave feedback</a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section">
+  <p class="eyebrow">About</p>
+  <h2>What this place is for</h2>
+  <div class="about-grid">
+    <div class="about-card">
+      <h3>For members</h3>
+      <p>Update your profile, browse announcements, and tell us what you think through feedback.</p>
+    </div>
+    <div class="about-card">
+      <h3>For admins</h3>
+      <p>Review member feedback, manage messages, and keep the community page up to date.</p>
+    </div>
+    <div class="about-card">
+      <h3>For everyone</h3>
+      <p>Works the same way on a phone, tablet, laptop, or desktop — no separate app needed.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section alt">
+  <p class="eyebrow">Contact</p>
+  <h2>Get in touch</h2>
+  <form id="contactForm" class="stack-form">
+    <label>Your name
+      <input type="text" required placeholder="Full name">
+    </label>
+    <label>Email
+      <input type="email" required placeholder="you@example.com">
+    </label>
+    <label>Message
+      <textarea rows="4" required placeholder="How can we help?"></textarea>
+    </label>
+    <button type="submit" class="btn-primary">Send message</button>
+  </form>
+  <p class="form-status" id="contactStatus"></p>
+</section>
+
+<!-- FEEDBACK -->
+<section id="feedback" class="section">
+  <p class="eyebrow">Feedback</p>
+  <h2>Tell us what you think</h2>
+
+  <form id="feedbackForm" class="stack-form">
+    <label>Rating
+      <select id="feedbackRating">
+        <option value="5">Excellent</option>
+        <option value="4">Good</option>
+        <option value="3">Okay</option>
+        <option value="2">Needs work</option>
+        <option value="1">Poor</option>
+      </select>
+    </label>
+    <label>Your feedback
+      <textarea id="feedbackText" rows="3" required placeholder="Share your thoughts"></textarea>
+    </label>
+    <button type="submit" class="btn-primary">Submit feedback</button>
+  </form>
+
+  <div class="feedback-list" id="userFeedbackList">
+    <p class="empty-note">No feedback yet. Be the first to share yours.</p>
+  </div>
+
+  <!-- Admin-only view -->
+  <div class="admin-only" id="adminFeedbackPanel" hidden>
+    <h3>All feedback (admin view)</h3>
+    <div id="adminFeedbackList"><p class="empty-note">Nothing submitted yet.</p></div>
+  </div>
+</section>
+
+<!-- GAMES -->
+<section id="games" class="section">
+  <p class="eyebrow">Games</p>
+  <h2>Take a break</h2>
+  <p class="games-lead">A few quick games to play right here on the page. Pick one below.</p>
+
+  <div class="game-tabs" id="gameTabs">
+    <button class="game-tab active" data-game="ttt">Tic-Tac-Toe</button>
+    <button class="game-tab" data-game="memory">Memory Match</button>
+    <button class="game-tab" data-game="rps">Rock Paper Scissors</button>
+    <button class="game-tab" data-game="snake">Snake</button>
+  </div>
+
+  <!-- Tic-Tac-Toe -->
+  <div class="game-panel" id="game-ttt">
+    <div class="game-status" id="tttStatus">Your turn — you are X</div>
+    <div class="ttt-board" id="tttBoard"></div>
+    <button class="btn-secondary" id="tttReset">Restart</button>
+  </div>
+
+  <!-- Memory Match -->
+  <div class="game-panel" id="game-memory" hidden>
+    <div class="game-status" id="memoryStatus">Find all the matching pairs</div>
+    <div class="memory-board" id="memoryBoard"></div>
+    <button class="btn-secondary" id="memoryReset">Restart</button>
+  </div>
+
+  <!-- Rock Paper Scissors -->
+  <div class="game-panel" id="game-rps" hidden>
+    <div class="game-status" id="rpsStatus">Pick one to play against the computer</div>
+    <div class="rps-choices">
+      <button class="rps-btn" data-choice="rock">🪨 Rock</button>
+      <button class="rps-btn" data-choice="paper">📄 Paper</button>
+      <button class="rps-btn" data-choice="scissors">✂️ Scissors</button>
+    </div>
+    <div class="rps-score" id="rpsScore">You: 0 &nbsp;·&nbsp; Computer: 0</div>
+  </div>
+
+  <!-- Snake -->
+  <div class="game-panel" id="game-snake" hidden>
+    <div class="game-status" id="snakeStatus">Score: 0 — use arrow keys or swipe</div>
+    <canvas id="snakeCanvas" width="320" height="320"></canvas>
+    <button class="btn-secondary" id="snakeReset">Restart</button>
+  </div>
+</section>
+
+<!-- PROFILE -->
+<section id="profile" class="section alt">
+  <p class="eyebrow">Profile</p>
+  <h2>Your details</h2>
+
+  <div class="locked-note" id="profileLocked">
+    <p>Log in above to view and edit your profile.</p>
+  </div>
+
+  <form id="profileForm" class="stack-form" hidden>
+    <label>Display name
+      <input type="text" id="profileName" placeholder="Your name">
+    </label>
+    <label>Email
+      <input type="email" id="profileEmail" placeholder="you@example.com">
+    </label>
+    <label>About you
+      <textarea id="profileBio" rows="3" placeholder="A short bio"></textarea>
+    </label>
+    <button type="submit" class="btn-primary">Save profile</button>
+  </form>
+  <p class="form-status" id="profileStatus"></p>
+
+  <!-- Admin-only view -->
+  <div class="admin-only" id="adminUserPanel" hidden>
+    <h3>Member directory (admin view)</h3>
+    <table class="admin-table">
+      <thead><tr><th>Name</th><th>Email</th><th>Role</th></tr></thead>
+      <tbody id="adminUserTable">
+        <tr><td>Aria Chen</td><td>aria@example.com</td><td>Member</td></tr>
+        <tr><td>Devon Ross</td><td>devon@example.com</td><td>Member</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<footer class="footer">
+  <p>&copy; 2026 Community Hub. Built to fit any screen.</p>
+</footer>
+
+<script src="app.js"></script>
+<script src="games.js"></script>
+</body>
+</html>
