@@ -416,6 +416,87 @@ input:focus, textarea:focus, select:focus {
   touch-action: none;
 }
 
+/* 2048 */
+.t48-board {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  max-width: 320px;
+  background: var(--sand);
+  padding: 8px;
+  border-radius: 10px;
+}
+.t48-tile {
+  aspect-ratio: 1;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+/* Whack-a-Mole */
+.whack-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  max-width: 320px;
+}
+.whack-hole {
+  aspect-ratio: 1;
+  background: #d8cba8;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  border: 3px solid var(--teal-dark);
+}
+.whack-mole {
+  position: absolute;
+  bottom: -100%;
+  left: 10%;
+  width: 80%;
+  height: 80%;
+  background: var(--coral);
+  border-radius: 50% 50% 45% 45%;
+  transition: bottom 0.15s ease;
+}
+.whack-hole.up .whack-mole { bottom: 8%; }
+
+/* Simon Says */
+.simon-board {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  max-width: 260px;
+}
+.simon-pad {
+  aspect-ratio: 1;
+  border: none;
+  border-radius: 16px;
+  background: var(--pad-color);
+  opacity: 0.55;
+  cursor: pointer;
+  transition: opacity 0.1s ease;
+}
+.simon-pad.lit { opacity: 1; }
+
+/* Guess the Number */
+.guess-row {
+  display: flex;
+  gap: 0.6rem;
+  max-width: 320px;
+}
+.guess-row input {
+  flex: 1;
+}
+.guess-tries {
+  margin-top: 0.8rem;
+  font-size: 0.9rem;
+  color: #555;
+}
+
 @media (max-width: 600px) {
   .game-panel { padding: 1.1rem; }
   .ttt-cell { font-size: 1.6rem; }
