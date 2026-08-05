@@ -143,6 +143,14 @@
     <button class="game-tab" data-game="memory">Memory Match</button>
     <button class="game-tab" data-game="rps">Rock Paper Scissors</button>
     <button class="game-tab" data-game="snake">Snake</button>
+    <button class="game-tab" data-game="twenty48">2048</button>
+    <button class="game-tab" data-game="whack">Whack-a-Mole</button>
+    <button class="game-tab" data-game="simon">Simon Says</button>
+    <button class="game-tab" data-game="guess">Guess the Number</button>
+    <button class="game-tab" data-game="2048">2048</button>
+    <button class="game-tab" data-game="whack">Whack-a-Mole</button>
+    <button class="game-tab" data-game="simon">Simon Says</button>
+    <button class="game-tab" data-game="connect4">Connect Four</button>
   </div>
 
   <!-- Tic-Tac-Toe -->
@@ -175,6 +183,43 @@
     <div class="game-status" id="snakeStatus">Score: 0 — use arrow keys or swipe</div>
     <canvas id="snakeCanvas" width="320" height="320"></canvas>
     <button class="btn-secondary" id="snakeReset">Restart</button>
+  </div>
+
+  <!-- 2048 -->
+  <div class="game-panel" id="game-twenty48" hidden>
+    <div class="game-status" id="t48Status">Score: 0 — use arrow keys to slide tiles</div>
+    <div class="t48-board" id="t48Board"></div>
+    <button class="btn-secondary" id="t48Reset">Restart</button>
+  </div>
+
+  <!-- Whack-a-Mole -->
+  <div class="game-panel" id="game-whack" hidden>
+    <div class="game-status" id="whackStatus">Score: 0 — Time: 20s</div>
+    <div class="whack-grid" id="whackGrid"></div>
+    <button class="btn-secondary" id="whackStart">Start</button>
+  </div>
+
+  <!-- Simon Says -->
+  <div class="game-panel" id="game-simon" hidden>
+    <div class="game-status" id="simonStatus">Watch the pattern, then repeat it</div>
+    <div class="simon-board" id="simonBoard">
+      <button class="simon-pad" data-pad="0" style="--pad-color:#2E8B57"></button>
+      <button class="simon-pad" data-pad="1" style="--pad-color:#C0392B"></button>
+      <button class="simon-pad" data-pad="2" style="--pad-color:#D4AC0D"></button>
+      <button class="simon-pad" data-pad="3" style="--pad-color:#1B4B4A"></button>
+    </div>
+    <button class="btn-secondary" id="simonStart">Start</button>
+  </div>
+
+  <!-- Guess the Number -->
+  <div class="game-panel" id="game-guess" hidden>
+    <div class="game-status" id="guessStatus">I'm thinking of a number between 1 and 100</div>
+    <div class="guess-row">
+      <input type="number" id="guessInput" min="1" max="100" placeholder="Your guess">
+      <button class="btn-primary" id="guessSubmit">Guess</button>
+    </div>
+    <p class="guess-tries" id="guessTries">Tries: 0</p>
+    <button class="btn-secondary" id="guessReset">New number</button>
   </div>
 </section>
 
