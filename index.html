@@ -136,90 +136,92 @@
 <section id="games" class="section">
   <p class="eyebrow">Games</p>
   <h2>Take a break</h2>
-  <p class="games-lead">A few quick games to play right here on the page. Pick one below.</p>
+  <p class="games-lead">A few quick games to play right here on the page.</p>
 
-  <div class="game-tabs" id="gameTabs">
-    <button class="game-tab active" data-game="ttt">Tic-Tac-Toe</button>
-    <button class="game-tab" data-game="memory">Memory Match</button>
-    <button class="game-tab" data-game="rps">Rock Paper Scissors</button>
-    <button class="game-tab" data-game="snake">Snake</button>
-    <button class="game-tab" data-game="twenty48">2048</button>
-    <button class="game-tab" data-game="whack">Whack-a-Mole</button>
-    <button class="game-tab" data-game="simon">Simon Says</button>
-    <button class="game-tab" data-game="guess">Guess the Number</button>
-    <button class="game-tab" data-game="2048">2048</button>
-    <button class="game-tab" data-game="whack">Whack-a-Mole</button>
-    <button class="game-tab" data-game="simon">Simon Says</button>
-    <button class="game-tab" data-game="connect4">Connect Four</button>
+  <div class="locked-note" id="gamesLocked">
+    <p>Log in above to unlock the games.</p>
   </div>
 
-  <!-- Tic-Tac-Toe -->
-  <div class="game-panel" id="game-ttt">
-    <div class="game-status" id="tttStatus">Your turn — you are X</div>
-    <div class="ttt-board" id="tttBoard"></div>
-    <button class="btn-secondary" id="tttReset">Restart</button>
-  </div>
-
-  <!-- Memory Match -->
-  <div class="game-panel" id="game-memory" hidden>
-    <div class="game-status" id="memoryStatus">Find all the matching pairs</div>
-    <div class="memory-board" id="memoryBoard"></div>
-    <button class="btn-secondary" id="memoryReset">Restart</button>
-  </div>
-
-  <!-- Rock Paper Scissors -->
-  <div class="game-panel" id="game-rps" hidden>
-    <div class="game-status" id="rpsStatus">Pick one to play against the computer</div>
-    <div class="rps-choices">
-      <button class="rps-btn" data-choice="rock">🪨 Rock</button>
-      <button class="rps-btn" data-choice="paper">📄 Paper</button>
-      <button class="rps-btn" data-choice="scissors">✂️ Scissors</button>
+  <div id="gamesContent" hidden>
+    <div class="game-tabs" id="gameTabs">
+      <button class="game-tab active" data-game="ttt">Tic-Tac-Toe</button>
+      <button class="game-tab" data-game="memory">Memory Match</button>
+      <button class="game-tab" data-game="rps">Rock Paper Scissors</button>
+      <button class="game-tab" data-game="snake">Snake</button>
+      <button class="game-tab" data-game="twenty48">2048</button>
+      <button class="game-tab" data-game="whack">Whack-a-Mole</button>
+      <button class="game-tab" data-game="simon">Simon Says</button>
+      <button class="game-tab" data-game="guess">Guess the Number</button>
     </div>
-    <div class="rps-score" id="rpsScore">You: 0 &nbsp;·&nbsp; Computer: 0</div>
-  </div>
 
-  <!-- Snake -->
-  <div class="game-panel" id="game-snake" hidden>
-    <div class="game-status" id="snakeStatus">Score: 0 — use arrow keys or swipe</div>
-    <canvas id="snakeCanvas" width="320" height="320"></canvas>
-    <button class="btn-secondary" id="snakeReset">Restart</button>
-  </div>
-
-  <!-- 2048 -->
-  <div class="game-panel" id="game-twenty48" hidden>
-    <div class="game-status" id="t48Status">Score: 0 — use arrow keys to slide tiles</div>
-    <div class="t48-board" id="t48Board"></div>
-    <button class="btn-secondary" id="t48Reset">Restart</button>
-  </div>
-
-  <!-- Whack-a-Mole -->
-  <div class="game-panel" id="game-whack" hidden>
-    <div class="game-status" id="whackStatus">Score: 0 — Time: 20s</div>
-    <div class="whack-grid" id="whackGrid"></div>
-    <button class="btn-secondary" id="whackStart">Start</button>
-  </div>
-
-  <!-- Simon Says -->
-  <div class="game-panel" id="game-simon" hidden>
-    <div class="game-status" id="simonStatus">Watch the pattern, then repeat it</div>
-    <div class="simon-board" id="simonBoard">
-      <button class="simon-pad" data-pad="0" style="--pad-color:#2E8B57"></button>
-      <button class="simon-pad" data-pad="1" style="--pad-color:#C0392B"></button>
-      <button class="simon-pad" data-pad="2" style="--pad-color:#D4AC0D"></button>
-      <button class="simon-pad" data-pad="3" style="--pad-color:#1B4B4A"></button>
+    <!-- Tic-Tac-Toe -->
+    <div class="game-panel" id="game-ttt">
+      <div class="game-status" id="tttStatus">Your turn — you are X</div>
+      <div class="ttt-board" id="tttBoard"></div>
+      <button class="btn-secondary" id="tttReset">Restart</button>
     </div>
-    <button class="btn-secondary" id="simonStart">Start</button>
-  </div>
 
-  <!-- Guess the Number -->
-  <div class="game-panel" id="game-guess" hidden>
-    <div class="game-status" id="guessStatus">I'm thinking of a number between 1 and 100</div>
-    <div class="guess-row">
-      <input type="number" id="guessInput" min="1" max="100" placeholder="Your guess">
-      <button class="btn-primary" id="guessSubmit">Guess</button>
+    <!-- Memory Match -->
+    <div class="game-panel" id="game-memory" hidden>
+      <div class="game-status" id="memoryStatus">Find all the matching pairs</div>
+      <div class="memory-board" id="memoryBoard"></div>
+      <button class="btn-secondary" id="memoryReset">Restart</button>
     </div>
-    <p class="guess-tries" id="guessTries">Tries: 0</p>
-    <button class="btn-secondary" id="guessReset">New number</button>
+
+    <!-- Rock Paper Scissors -->
+    <div class="game-panel" id="game-rps" hidden>
+      <div class="game-status" id="rpsStatus">Pick one to play against the computer</div>
+      <div class="rps-choices">
+        <button class="rps-btn" data-choice="rock">🪨 Rock</button>
+        <button class="rps-btn" data-choice="paper">📄 Paper</button>
+        <button class="rps-btn" data-choice="scissors">✂️ Scissors</button>
+      </div>
+      <div class="rps-score" id="rpsScore">You: 0 &nbsp;·&nbsp; Computer: 0</div>
+    </div>
+
+    <!-- Snake -->
+    <div class="game-panel" id="game-snake" hidden>
+      <div class="game-status" id="snakeStatus">Score: 0 — use arrow keys or swipe</div>
+      <canvas id="snakeCanvas" width="320" height="320"></canvas>
+      <button class="btn-secondary" id="snakeReset">Restart</button>
+    </div>
+
+    <!-- 2048 -->
+    <div class="game-panel" id="game-twenty48" hidden>
+      <div class="game-status" id="t48Status">Score: 0 — use arrow keys to slide tiles</div>
+      <div class="t48-board" id="t48Board"></div>
+      <button class="btn-secondary" id="t48Reset">Restart</button>
+    </div>
+
+    <!-- Whack-a-Mole -->
+    <div class="game-panel" id="game-whack" hidden>
+      <div class="game-status" id="whackStatus">Score: 0 — Time: 20s</div>
+      <div class="whack-grid" id="whackGrid"></div>
+      <button class="btn-secondary" id="whackStart">Start</button>
+    </div>
+
+    <!-- Simon Says -->
+    <div class="game-panel" id="game-simon" hidden>
+      <div class="game-status" id="simonStatus">Watch the pattern, then repeat it</div>
+      <div class="simon-board" id="simonBoard">
+        <button class="simon-pad" data-pad="0" style="--pad-color:#2E8B57"></button>
+        <button class="simon-pad" data-pad="1" style="--pad-color:#C0392B"></button>
+        <button class="simon-pad" data-pad="2" style="--pad-color:#D4AC0D"></button>
+        <button class="simon-pad" data-pad="3" style="--pad-color:#1B4B4A"></button>
+      </div>
+      <button class="btn-secondary" id="simonStart">Start</button>
+    </div>
+
+    <!-- Guess the Number -->
+    <div class="game-panel" id="game-guess" hidden>
+      <div class="game-status" id="guessStatus">I'm thinking of a number between 1 and 100</div>
+      <div class="guess-row">
+        <input type="number" id="guessInput" min="1" max="100" placeholder="Your guess">
+        <button class="btn-primary" id="guessSubmit">Guess</button>
+      </div>
+      <p class="guess-tries" id="guessTries">Tries: 0</p>
+      <button class="btn-secondary" id="guessReset">New number</button>
+    </div>
   </div>
 </section>
 
@@ -264,6 +266,14 @@
 </footer>
 
 <script src="app.js"></script>
-<script src="games.js"></script>
+<script src="games-common.js"></script>
+<script src="game-tictactoe.js"></script>
+<script src="game-memory.js"></script>
+<script src="game-rps.js"></script>
+<script src="game-snake.js"></script>
+<script src="game-2048.js"></script>
+<script src="game-whack.js"></script>
+<script src="game-simon.js"></script>
+<script src="game-guess.js"></script>
 </body>
 </html>
