@@ -28,6 +28,9 @@ const profileForm = document.getElementById("profileForm");
 const profileStatus = document.getElementById("profileStatus");
 const adminUserPanel = document.getElementById("adminUserPanel");
 
+const gamesLocked = document.getElementById("gamesLocked");
+const gamesContent = document.getElementById("gamesContent");
+
 // ===== Mobile menu toggle =====
 menuToggle.addEventListener("click", () => {
   navlinks.classList.toggle("open");
@@ -75,6 +78,10 @@ loginForm.addEventListener("submit", (e) => {
   profileForm.hidden = false;
   document.getElementById("profileName").value = username;
 
+  // Unlock games section
+  gamesLocked.hidden = true;
+  gamesContent.hidden = false;
+
   // Show admin panels if role is admin
   adminFeedbackPanel.hidden = !(currentRole === "admin");
   adminUserPanel.hidden = !(currentRole === "admin");
@@ -97,6 +104,12 @@ logoutBtn.addEventListener("click", () => {
   profileForm.hidden = true;
   adminFeedbackPanel.hidden = true;
   adminUserPanel.hidden = true;
+
+  // Re-lock games section and stop any running games
+  gamesLocked.hidden = false;
+  gamesContent.hidden = true;
+  if (typeof pauseSnake === "function") pauseSnake();
+  if (typeof whackStop === "function") whackStop();
 });
 
 // ===== Contact form =====
